@@ -5,26 +5,36 @@ const Reducer = (state, action) => {
         ...state,
         userData: action.payload.userData,
         isAuth: action.payload.isAuth,
+        isLoading: false,
       };
     case "REGISTER":
       return {
         ...state,
         isAuth: action.payload.isAuth,
         userData: action.payload.userData,
+        isLoading: false,
       };
     case "HOSPITAL_REGISTER":
       return {
         ...state,
         isAuth: action.payload.isAuth,
-        hospital: action.payload.hospital,
+        hospitalData: action.payload.hospitalData,
         isHospital: action.payload.isHospital,
+        isLoading: false,
       };
     case "HOSPITAL_LOGIN":
       return {
         ...state,
         isAuth: action.payload.isAuth,
-        hospital: action.payload.hospital,
+        hospitalData: action.payload.hospitalData,
         isHospital: action.payload.isHospital,
+        isLoading: false,
+      };
+    case "UPDATE_HOSPITAL":
+      return {
+        ...state,
+        hospitalData: action.payload.hospitalData,
+        isLoading: false,
       };
     case "VERIFY_AUTH":
       return {
@@ -32,6 +42,8 @@ const Reducer = (state, action) => {
         isAuth: true,
         userData: action.payload.userData,
         isHospital: action.payload.isHospital,
+        hospitalData: action.payload.hospitalData,
+        isLoading: false,
       };
     case "SET_ERROR":
       return {

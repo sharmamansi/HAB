@@ -4,11 +4,12 @@ import axios from "axios";
 import Home from "./components/Home";
 import UserAuth from "./components/UserAuth";
 import HospitalAuth from "./components/HospitalAuth";
-import withAuth from "./withAuth";
 import Navbar from "./components/Navbar";
 import HospitalProfile from "./components/HospitalProfile";
+import HospitalProfileEdit from "./components/HospitalProfileEdit";
 
 import { Context } from "./Store";
+import Dashboard from "./components/Landing";
 
 export default function App() {
   const [state, dispatch] = useContext(Context);
@@ -25,6 +26,7 @@ export default function App() {
               isAuth: true,
               userData: res.data.user,
               isHospital: res.data.isHospital,
+              hospitalData: res.data.hospital,
             },
           });
         } else {
@@ -40,10 +42,16 @@ export default function App() {
     <>
       <Navbar />
       <Switch>
-        <Route path="/" exact component={Home} />
+        <Route path="/hospital/all" exact component={Home} />
         <Route path="/user/auth" exact component={UserAuth} />
+        <Route path="/" exact component={Dashboard} />
         <Route path="/hospital/auth" exact component={HospitalAuth} />
         <Route path="/hospital/profile/:id" exact component={HospitalProfile} />
+        <Route
+          path="/hospital/profile/edit/:id"
+          exact
+          component={HospitalProfileEdit}
+        />
       </Switch>
     </>
   );
