@@ -10,6 +10,7 @@ import InfoIcon from "@material-ui/icons/Info";
 import HospitalTable from "./HospitalTable";
 export default function FormDialog({ props }) {
   const { data } = props;
+  console.log(props);
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -32,7 +33,7 @@ export default function FormDialog({ props }) {
       <Dialog
         open={open}
         onClose={handleClose}
-        aria-labelledby="form-dialog-title"
+        aria-labelledby="form-dialog-title" 
       >
         <DialogTitle id="form-dialog-title">{data.name}</DialogTitle>
         <DialogContent>
@@ -40,6 +41,9 @@ export default function FormDialog({ props }) {
           <HospitalTable props={{ data }} />
         </DialogContent>
         <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Close
+          </Button>
           <Button onClick={handleClose} color="primary">
             Close
           </Button>
