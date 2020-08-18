@@ -7,9 +7,11 @@ import HospitalAuth from "./components/HospitalAuth";
 import Navbar from "./components/Navbar";
 import HospitalProfile from "./components/HospitalProfile";
 import HospitalProfileEdit from "./components/HospitalProfileEdit";
+import HospitalDashboard from "./components/HospitalDashboard";
 
 import { Context } from "./Store";
 import Dashboard from "./components/Landing";
+import ViewMap from "./components/ViewMap";
 
 export default function App() {
   const [state, dispatch] = useContext(Context);
@@ -42,11 +44,17 @@ export default function App() {
     <>
       <Navbar />
       <Switch>
+      <Route path="/map" exact component={ViewMap} />
         <Route path="/hospital/all" exact component={Home} />
         <Route path="/user/auth" exact component={UserAuth} />
         <Route path="/" exact component={Dashboard} />
         <Route path="/hospital/auth" exact component={HospitalAuth} />
         <Route path="/hospital/profile/:id" exact component={HospitalProfile} />
+        <Route
+          path="/hospital/dashboard/:id"
+          exact
+          component={HospitalDashboard}
+        />
         <Route
           path="/hospital/profile/edit/:id"
           exact

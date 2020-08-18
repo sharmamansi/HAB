@@ -54,6 +54,10 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             <NavLink to="/">Sewak</NavLink>
           </Typography>
+          <NavLink to="/map">
+            <Button color="inherit">View Map</Button>
+          </NavLink>
+          |
           <NavLink to="/hospital/all">
             <Button color="inherit">All Hospitals</Button>
           </NavLink>
@@ -62,7 +66,7 @@ export default function ButtonAppBar() {
             <NavLink
               to={
                 state.isHospital
-                  ? `/hospital/profile/${state.hospitalData._id}`
+                  ? `/hospital/dashboard/${state.hospitalData._id}`
                   : `/user/profile/${state.userData._id}`
               }
             >
